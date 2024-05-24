@@ -34,7 +34,7 @@ def update_client_send(data):
     return 'Client Update Successfully'
 
 def add_client_db(data):
-    client = client_db(contract=data['onu_contract'],
+    client = client_db(contract=data.contract,
                        frame=data.frame,
                        slot=data.slot,
                        port=data.port,
