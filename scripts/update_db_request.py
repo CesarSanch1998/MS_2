@@ -4,6 +4,10 @@ from models.update_db import client_db
 def update_client_send(data):
     print(f"{data.contract} fspid:{data.fsp}/{data.onu_id} sn:{data.sn}")
     # print(data.contract)
+    request = session.query(client_db).filter(client_db.contract == data.contract).delete()
+    session.commit()
+
+    
     request = session.query(client_db).filter(client_db.contract == data.contract).first()
     if request == None:
         add_client_db(data)
